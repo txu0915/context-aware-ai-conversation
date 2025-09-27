@@ -1,0 +1,27 @@
+# Core dependencies for the SMC 2025 Socratic AI Tutor Tutorial
+
+# For data manipulation
+pandas
+
+# For accessing the Google Gemini API
+google-generativeai
+
+# For loading environment variables from .env file
+python-dotenv
+
+# For running interactive notebooks
+jupyterlab
+ipykernel
+ipywidgets
+seaborn
+matplotlib
+
+
+# For making HTTP requests to fetch images
+requests
+
+# For data validation and defining schemas
+pydantic
+
+# For creating progress bars in notebooks
+tqdm
