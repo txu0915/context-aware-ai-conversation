@@ -59,12 +59,16 @@ Click on "Get API key" and then "Create API key in new project".
 Copy the generated key. You will need it in the next step.
 Step 3: Run the Automated Setup Script
 We've created a script that handles everything for you: it creates a virtual environment, installs all required packages, and prepares your configuration file.
+```
 
 For macOS and Linux:
+```
 bash setup.sh
+```
 For Windows:
+```
 setup.bat
-
+```
 
 Step 4: Add Your API Key
 The setup script created a file named .env in your project directory.
@@ -73,11 +77,11 @@ Replace the placeholder 'YOUR_API_KEY_HERE' with the Gemini API key you copied e
 Save and close the file.
 Step 5: Activate Your Environment & Launch
 Activate the virtual environment in your terminal:
-macOS/Linux: source venv/bin/activate
-Windows: venv\Scripts\activate
+macOS/Linux: ```source venv/bin/activate```
+Windows: ```venv\Scripts\activate```
 You'll know it's active when you see (venv) at the beginning of your terminal prompt.
 Launch Jupyter Lab:
-jupyter lab
+```jupyter lab```
 
 This will open a new tab in your browser with the Jupyter Lab interface.
 💻 Running the Tutorial Notebooks
