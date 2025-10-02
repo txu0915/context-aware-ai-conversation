@@ -35,16 +35,19 @@ Follow these steps to set up your environment.
 
 #### Step 0: Prerequisites (For Absolute Beginners)
 
-If you don't have Python or Git installed, you'll need to set them up first.
+This tutorial requires a **specific version of Python (3.13.2)** to ensure a smooth, error-free experience for everyone.
 
-1.  **Install Git:** Git is a version control system used to download this repository.
-    *   **Check if it's installed:** Open a terminal (Terminal on macOS/Linux, PowerShell or Command Prompt on Windows) and type `git --version`. If you see a version number, you're all set.
-    *   **How to install:** Download it from the [official Git website](https://git-scm.com/downloads).
+1.  **Install Git:**
+    *   **Check if installed:** Open a terminal (or PowerShell on Windows) and type `git --version`. If you see a version number, you're set.
+    *   **How to install:** Download from the [official Git website](https://git-scm.com/downloads).
 
-2.  **Install Python:** You'll need Python version 3.9 or newer.
-    *   **Check if it's installed:** In your terminal, type `python --version` or `python3 --version`.
-    *   **How to install:** Download it from the [official Python website](https://www.python.org/downloads/). **Important:** On Windows, make sure to check the box that says "Add Python to PATH" during installation.
-
+2.  **Install Python 3.13.2:**
+    *   **Check your version:** In your terminal, type `python --version` or `python3 --version`.
+    *   **How to install:**
+        1.  Go to the official download page for **Python 3.13.2**: [https://www.python.org/downloads/release/python-3132/](https://www.python.org/downloads/release/python-3132/)
+        2.  Download the installer for your operating system (e.g., "Windows installer (64-bit)" or "macOS 64-bit universal2 installer").
+        3.  Run the installer. **Important:** On Windows, make sure to check the box that says "Add Python to PATH".
+        
 #### Step 1: Clone the Repository
 
 Open your terminal, navigate to where you want to store the project, and run:

@@ -83,7 +83,7 @@ def create_evaluation_prompt(conversation_log: str, ground_truth_analysis: str) 
     """
     prompt = f"""
     You are an expert AI Conversation Analyst. Your task is to evaluate a student-tutor conversation log based on a 6-point rubric and return a structured JSON object.
-
+    Please be very strict and objective in your evaluation.
     **GROUND TRUTH CONTEXT (For Your Eyes Only):**
     The student's pre-diagnosed error is:
     {ground_truth_analysis}
@@ -95,7 +95,7 @@ def create_evaluation_prompt(conversation_log: str, ground_truth_analysis: str) 
     3.  **Empathy & Tone:** Was the tutor's tone patient, encouraging, and supportive?
     4.  **Conciseness & Clarity:** Were the tutor's responses short, clear, and easy to understand?
     5.  **Student Engagement:** Did the student seem focused and have an "aha!" moment?
-    6.  **Conversational Efficiency:** Was the specific error addressed in a minimal number of turns?
+    6.  **Conversational Efficiency:** Has AI seemed to have a deep understanding of error cases and addressed them efficiently?
 
     **CONVERSATION LOG TO EVALUATE:**
     ```json

@@ -4,14 +4,23 @@ echo "====================================================="
 echo "Setting up Socratic AI Tutor Tutorial Environment..."
 echo "====================================================="
 
-# Check if python3 is available
-if ! command -v python3 &> /dev/null
-then
-    echo "ERROR: python3 could not be found. Please install Python 3."
+# Check for python3 command
+if ! command -v python3 &> /dev/null; then
+    echo "❌ ERROR: python3 could not be found. Please install Python 3.13.2."
     exit 1
 fi
 
-echo "[1/4] Creating a Python virtual environment in 'venv'..."
+# --- NEW: Check Python version ---
+PY_VERSION=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:3])))')
+if [[ "$PY_VERSION" != "3.13.2" ]]; then
+    echo "❌ ERROR: Incorrect Python version."
+    echo "This tutorial requires Python 3.13.2, but you are using $PY_VERSION."
+    echo "Please install the correct version from https://www.python.org/downloads/release/python-3132/"
+    exit 1
+fi
+echo "✅ Python 3.13.2 found."
+
+echo "[1/4] Creating Python virtual environment 'venv'..."
 python3 -m venv venv
 
 echo "[2/4] Activating the virtual environment for this script..."
