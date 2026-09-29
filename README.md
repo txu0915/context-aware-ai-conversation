@@ -105,7 +105,7 @@ Before presenting, activate the environment and execute the notebooks in order. 
 ## Organizers
 
 - Tianlong Xu — Squirrel AI Learning
-- Aoxiao Zhong — Squirrel AI Learning
+- Haoyang Li — Squirrel AI Learning
 - Joleen Liang — Squirrel AI Learning
 - Qingsong Wen — Squirrel AI Learning
 
