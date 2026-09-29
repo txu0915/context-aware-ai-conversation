@@ -1,111 +1,114 @@
-# Advancing Human-Machine Systems in Education: Socratic AI Tutoring for Personalized Math Education
-### Official Repository for the IEEE SMC 2025 Tutorial
+# Error-Aware Socratic Tutoring at Scale
 
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Conference](https://img.shields.io/badge/IEEE%20SMC-2025-blueviolet)](https://ieeesmc2025.org/)
+English-language materials for the IEEE SMC 2026 half-day tutorial on building context-aware, error-aware Socratic AI tutors for K–12 education.
 
-Welcome! This repository contains all the code, data, and interactive notebooks for our tutorial on building a context-aware Socratic AI tutor for K-12 math education.
+The tutorial connects four ideas: structured error attribution, context-aware dialogue generation, dialogue evaluation, and hybrid guardrails. Every core notebook runs from small, de-identified, deterministic fixtures so it can be presented quickly and reproduced without network access. Notebooks 01–03 also include optional live API cells for participants who want to try the workflow with OpenAI or Google Gemini.
 
----
+## Tutorial sequence
 
-### 📖 Tutorial Abstract
+Run the notebooks in this order:
 
-As AI-driven educational systems advance, the challenge lies in designing human-machine interactions that are pedagogically effective and adaptive. This tutorial introduces Socratic AI Tutoring, a structured framework that engages students in interactive, step-by-step guidance to understand and correct their own mistakes. By leveraging multimodal AI to pre-analyze a student's work, our tutor is context-aware from the first interaction, enabling personalized and highly effective learning dialogues.
+1. `00_Tutorial_Roadmap.ipynb` — tutorial narrative, methodology, and prepared/live learning paths.
+2. `01_Error_Aware_Retrieval.ipynb` — multimodal error attribution, taxonomy evidence, evidence policies, and optional live case analysis.
+3. `02_Context_Aware_Dialogue.ipynb` — matched context-aware and context-unaware sessions plus optional live simulation.
+4. `03_Conversation_Evaluation.ipynb` — T1–T9 teacher evaluation, paired visualizations, failure definitions, and optional live evaluation.
+5. `03_Early_Stopping_and_Guardrails.ipynb` — S1–S6 student outcomes, bad-case review, curriculum-scope monitoring, and rule-plus-LLM arbitration.
 
----
+The two `03_` notebooks form one evaluation and safety section: evaluate the conversation first, then inspect stopping and guardrail decisions.
 
-### ✨ What You'll Learn & Build
+## What is included
 
-By the end of this 2-hour tutorial, you will have built and evaluated a complete Socratic tutoring system. You will:
+- A stratified 20-class demonstration subset of the 41-class error taxonomy, with at least two minor classes per major category.
+- Three complete error-attribution cases showing draft-preferred, answer-preferred, and mixed evidence policies.
+- Six matched dialogue sessions covering short, medium, and long interactions with and without error context.
+- An English presentation version of the production-inspired T1–T9 teacher and S1–S6 student rubrics.
+- Guardrail examples for `continue`, `verify_learning`, `support`, `redirect`, `stop`, and `escalate`.
+- Optional OpenAI and Google Gemini live demos that remain isolated from the offline tutorial path.
 
-*   🧠 **Perform Multimodal Error Analysis:** Use Google Gemini's vision capabilities to analyze a student's handwritten work, identify their specific mistake, and categorize it into a structured format.
-*   💬 **Build a Dual-Chat Interface:** Create and compare two AI tutors side-by-side—one that is context-aware and one that is not—to vividly demonstrate the UX benefits of context.
-*   ⚖️ **Create an Automated Evaluation Framework:** Use an LLM as an impartial judge to score conversation quality against a 6-point pedagogical rubric, turning qualitative interactions into quantitative data.
+Prepared scores are tutorial fixtures, not production evaluation results. They make the presentation deterministic and easy to follow; the optional live cells let participants run the same workflow themselves.
 
----
+## Repository structure
 
-### 📂 Project Structure
+```text
+data/       Small tutorial fixtures
+notebooks/  Presentation-ready tutorial notebooks
+prompts/    English prompt references
+src/        Display, evaluation, guardrail, and live-demo utilities
+logs/       Example context-aware and context-unaware conversations
+reports/    Tutorial deck and overview exports
+```
 
-The repository is organized to be clean and modular:
+`ppt_assets_local/`, `.env`, virtual environments, notebook checkpoints, and Python caches are intentionally excluded from Git.
 
-### 🚀 Getting Started: From Zero to Ready in 5 Steps
+## Quick start
 
-Follow these steps to set up your environment.
+### Requirements
 
-#### Step 0: Prerequisites (For Absolute Beginners)
+- Python 3.10 or later
+- Git
+- An OpenAI or Google API key only if you want to run the optional live cells
 
-This tutorial requires a **specific version of Python (3.13.2)** to ensure a smooth, error-free experience for everyone.
+### macOS or Linux
 
-1.  **Install Git:**
-    *   **Check if installed:** Open a terminal (or PowerShell on Windows) and type `git --version`. If you see a version number, you're set.
-    *   **How to install:** Download from the [official Git website](https://git-scm.com/downloads).
-
-2.  **Install Python 3.13.2:**
-    *   **Check your version:** In your terminal, type `python --version` or `python3 --version`.
-    *   **How to install:**
-        1.  Go to the official download page for **Python 3.13.2**: [https://www.python.org/downloads/release/python-3132/](https://www.python.org/downloads/release/python-3132/)
-        2.  Download the installer for your operating system (e.g., "Windows installer (64-bit)" or "macOS 64-bit universal2 installer").
-        3.  Run the installer. **Important:** On Windows, make sure to check the box that says "Add Python to PATH".
-        
-#### Step 1: Clone the Repository
-
-Open your terminal, navigate to where you want to store the project, and run:
 ```bash
 git clone https://github.com/txu0915/context-aware-ai-conversation.git
 cd context-aware-ai-conversation
-```
-
-### Step 2: Get Your Google Gemini API Key
-This project uses the Google Gemini API. It has a generous free tier that is perfect for this tutorial.
-Go to Google AI Studio.
-Sign in with your Google account.
-Click on "Get API key" and then "Create API key in new project".
-Copy the generated key. You will need it in the next step.
-
-### Step 3: Run the Automated Setup Script
-We've created a script that handles everything for you: it creates a virtual environment, installs all required packages, and prepares your configuration file.
-For macOS and Linux:
-```
 bash setup.sh
+source venv/bin/activate
+jupyter lab
 ```
-For Windows:
-```
+
+### Windows
+
+```bat
+git clone https://github.com/txu0915/context-aware-ai-conversation.git
+cd context-aware-ai-conversation
 setup.bat
+venv\Scripts\activate
+jupyter lab
 ```
 
-### Step 4: Add Your API Key
-The setup script created a file named .env in your project directory.
-Open the .env file with any text editor.
-Replace the placeholder 'YOUR_API_KEY_HERE' with the Gemini API key you copied earlier.
-Save and close the file.
+You can also install manually:
 
-### Step 5: Activate Your Environment & Launch
-Activate the virtual environment in your terminal:
-macOS/Linux: ```source venv/bin/activate```
-Windows: ```venv\Scripts\activate```
-You'll know it's active when you see (venv) at the beginning of your terminal prompt.
-Launch Jupyter Lab:
-```jupyter lab```
-
-This will open a new tab in your browser with the Jupyter Lab interface.
-💻 Running the Tutorial Notebooks
-Navigate to the notebooks directory in the Jupyter Lab file browser. Run the notebooks in the following order:
-    01_Error_Aware_Retrieval.ipynb: Analyze student drafts with a multimodal AI and generate a structured analysis file.
-    02_Context_Aware_Dialogue.ipynb: Launch the side-by-side chat interface and interact with the two different AI tutors.
-    03_Conversational_Evaluation.ipynb: Automatically evaluate your saved conversation logs and visualize the performance comparison.
-🔧 Troubleshooting
-Problem: The chat widgets in Notebook 02 are not appearing or are stuck loading.
-Solution: Your Jupyter Lab may be missing the required frontend extension. Stop Jupyter Lab (Ctrl+C in terminal), make sure your (venv) is active, and run:
+```bash
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+jupyter lab
 ```
-jupyter labextension install @jupyter-widgets/jupyterlab-manager
-```
-Then, restart jupyter lab.
 
-👥 Organizers
-Tianlong Xu - Squirrel Ai Learning (tianlongxu@squirrelai.com)
-Aoxiao Zhong - Squirrel Ai Learning (aoxiaozhong@squirrelai.com)
-Joleen Liang - Squirrel Ai Learning (joleenliang@squirrelai.com)
-Qingsong Wen - Squirrel Ai Learning (qingsongwen@squirrelai.com)
-📜 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+## Optional live API configuration
+
+All required cells run without credentials. For a live demo, enter a key in the final cell of Notebook 01, 02, or 03, or create a local `.env` file:
+
+```text
+OPENAI_API_KEY=
+GEMINI_API_KEY=
+```
+
+The widget stores a submitted key only in the local `.env`, which is ignored by Git. The provider and model fields are editable because model availability changes over time.
+
+## Guardrail design
+
+The tutorial uses a conservative hybrid controller:
+
+- Deterministic rules enforce explicit safety boundaries and product limits.
+- An LLM detects semantic risks, indirect distress, intent, and contextual drift.
+- Curriculum evidence distinguishes off-topic behavior from academically relevant but out-of-scope questions.
+- A confident semantic judgment may raise intervention severity but cannot weaken a stricter rule decision.
+
+## Validation
+
+Before presenting, activate the environment and execute the notebooks in order. The offline path should complete without API keys. Live cells are optional and can be skipped.
+
+## Organizers
+
+- Tianlong Xu — Squirrel AI Learning
+- Aoxiao Zhong — Squirrel AI Learning
+- Joleen Liang — Squirrel AI Learning
+- Qingsong Wen — Squirrel AI Learning
+
+## License
+
+This project is licensed under the MIT License.

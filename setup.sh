@@ -29,13 +29,13 @@ source venv/bin/activate
 echo "[3/4] Installing required packages from requirements.txt..."
 pip install -r requirements.txt
 
-echo "[4/4] Creating the .env file for your API key..."
+echo "[4/4] Creating the optional local .env file..."
 # Create .env file but don't overwrite if it already exists
 if [ ! -f .env ]; then
-    echo "GEMINI_API_KEY='YOUR_API_KEY_HERE'" > .env
-    echo ".env file created. Please edit it with your Gemini API key."
+    printf "OPENAI_API_KEY=\nGEMINI_API_KEY=\n" > .env
+    echo ".env file created. Keys are optional and can also be entered in Notebooks 01–03."
 else
-    echo ".env file already exists. Please ensure your GEMINI_API_KEY is set."
+    echo ".env file already exists; it was not overwritten."
 fi
 
 echo ""
@@ -43,7 +43,7 @@ echo "====================================================="
 echo "✅ Setup Complete!"
 echo "====================================================="
 echo "Next Steps:"
-echo "1. IMPORTANT: Open the '.env' file and replace 'YOUR_API_KEY_HERE' with your actual Gemini API key."
-echo "2. Activate the environment in your terminal by running: source venv/bin/activate"
-echo "3. Start Jupyter Lab by running: jupyter lab"
+echo "1. Activate the environment in your terminal: source venv/bin/activate"
+echo "2. Start Jupyter Lab: jupyter lab"
+echo "3. Optional: enter an OpenAI or Google key in the final cell of Notebooks 01–03."
 echo "====================================================="

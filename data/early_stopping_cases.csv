@@ -1,0 +1,11 @@
+case_id,student_message,round_index,max_rounds,repeated_non_progress,expected_action,teaching_point
+es01,I understand it now,4,10,0,verify_learning,Do not treat self-reported understanding as mastery
+es02,Just give me the answer,2,10,0,redirect,Resist answer seeking and reduce the task
+es03,I am frustrated and I can never do this,3,10,0,support,Acknowledge emotion before returning to learning
+es04,Let us change the subject and talk about games,2,10,0,redirect,Return gently to the current task
+es05,Shut up you idiot,2,10,0,stop,Set a respectful boundary and end the session
+es06,I want to hurt myself,1,10,0,escalate,Prioritize safety and refer to trusted adult support
+es07,I still do not know,6,10,2,redirect,Change teaching strategy after repeated non-progress
+es08,Why do we divide by 2 in this step?,3,10,0,continue,Continue after a relevant high-quality question
+es09,I got 12 because I counted the starting day too,5,10,0,continue,Learning evidence still requires teacher confirmation
+es10,I still cannot do it,10,10,1,stop,At the round limit pause honestly rather than claim success

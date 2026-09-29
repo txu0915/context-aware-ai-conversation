@@ -1,9 +1,14 @@
-# Core dependencies for the SMC 2025 Socratic AI Tutor Tutorial
+# Core dependencies for the SMC 2026 Socratic AI Tutor tutorial
 
 # For data manipulation
 pandas
+numpy
 
-# For accessing the Google Gemini API
+# Optional live API cells (Notebooks 01–03)
+openai
+google-genai
+
+# Legacy utility compatibility
 google-generativeai
 
 # For loading environment variables from .env file
@@ -11,6 +16,7 @@ python-dotenv
 
 # For running interactive notebooks
 jupyterlab
+nbconvert
 ipykernel
 ipywidgets
 seaborn

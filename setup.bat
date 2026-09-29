@@ -52,13 +52,13 @@ if %errorlevel% neq 0 (
 echo ✅ All required packages installed successfully.
 echo.
 
-rem --- Step 5: Create the .env file for the API key ---
-echo [5/5] Preparing the .env file for your API key...
+rem --- Step 5: Create an optional local .env file ---
+echo [5/5] Preparing the optional local .env file...
 if not exist .env (
-    echo GEMINI_API_KEY='YOUR_API_KEY_HERE' > .env
-    echo ✅ '.env' file created. You will need to add your API key to it.
+    (echo OPENAI_API_KEY=& echo GEMINI_API_KEY=) > .env
+    echo ✅ '.env' file created. Keys can also be entered in Notebooks 01-03.
 ) else (
-    echo ✅ '.env' file already exists. Please ensure your API key is set correctly.
+    echo ✅ '.env' already exists and was not overwritten.
 )
 echo.
 
@@ -67,9 +67,9 @@ echo  🎉 Setup Complete!
 echo =================================================================
 echo.
 echo  Next Steps:
-echo  1. IMPORTANT: Open the '.env' file and replace 'YOUR_API_KEY_HERE' with your Google Gemini API key.
-echo  2. In your terminal, activate the new environment by running: venv\Scripts\activate
-echo  3. Launch the tutorial by running: jupyter lab
+echo  1. Activate the environment: venv\Scripts\activate
+echo  2. Launch the tutorial: jupyter lab
+echo  3. Optional: enter an OpenAI or Google key in the final cell of Notebooks 01-03.
 echo.
 goto :eof
 

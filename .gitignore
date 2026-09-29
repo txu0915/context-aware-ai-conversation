@@ -9,3 +9,11 @@ venv/
 
 # Python cache
 __pycache__/
+*.py[cod]
+
+# Local editor and operating-system files
+.DS_Store
+*.code-workspace
+
+# Local PPT production assets (copied manually into the deck; never commit)
+ppt_assets_local/

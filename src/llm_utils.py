@@ -86,7 +86,6 @@ def is_student_rude(message: str) -> bool:
             return True
     return False
 
-
 def log_conversation(log_path: str, conversation_history: list):
     """
     Saves the entire conversation history to a JSON file, creating parent directories if needed.

@@ -1,0 +1,21 @@
+id,major_category,minor_category,modality,definition,exclude
+PERCEPT_SYMBOL,Information perception,Problem symbol or label misread,draft_required,A visible number symbol or object label is read as something else,Later copying or arithmetic errors
+PERCEPT_OMISSION,Information perception,Explicit condition omitted,draft_preferred,A clearly stated condition never enters the student's work,The condition was used but misunderstood
+COMP_GOAL,Semantic comprehension,Task goal misunderstood,draft_preferred,The student computes a reasonable quantity that is not requested,The target was understood but entered in the wrong field
+COMP_RELATION,Semantic comprehension,Condition relationship misunderstood,draft_preferred,Comparison ratio order or correspondence is misunderstood,The relationship is correct but execution fails
+KNOW_DEF,Knowledge representation,Definition or basic fact missing,draft_required,A required definition or fact is stated incorrectly,An isolated arithmetic slip
+KNOW_FORMULA,Knowledge representation,Formula or theorem recalled incorrectly,draft_required,The formula structure is wrong before substitution,The formula is correct but a value is copied incorrectly
+MODEL_REPRESENT,Representation and modeling,Representation conversion error,draft_required,Information changes incorrectly when converted between text diagram or equation,The original semantic relationship was already misunderstood
+MODEL_QUANTITY,Representation and modeling,Incorrect quantitative model,draft_required,The goal is understood but the mathematical relationship is invalid,The natural-language relation itself was misunderstood
+REASON_INVALID,Reasoning,Invalid local inference,draft_required,A conclusion does not follow logically from the preceding step,A numerical arithmetic error
+REASON_STATE_LOSS,Reasoning,Previously established state lost,draft_required,Correct information disappears or changes later without justification,The information never entered the work
+EXEC_ARITHMETIC,Procedural execution,Basic arithmetic execution error,draft_preferred,The operation and algorithm are correct but a local arithmetic step fails,The model formula or algorithm is wrong
+EXEC_PLACE_VALUE,Procedural execution,Place-value or decimal-position error,draft_preferred,Alignment zeros or decimal placement are wrong within a correct algorithm,The underlying place-value concept is missing
+MONITOR_PLAUSIBILITY,Self-monitoring,Implausible result not detected,draft_preferred,An obviously impossible magnitude sign or range is accepted,The answer is merely unverified
+MONITOR_CONFLICT,Self-monitoring,Internal contradiction not resolved,cross,Two visible parts of the student's own work cannot both be true,A clear direct copying error explains the difference
+COPY_VALUE,Transcription,Intermediate value copied incorrectly,cross,A correct value changes when copied into a later step or answer,The original calculation was already wrong
+COPY_SYMBOL,Transcription,Symbol or expression copied incorrectly,cross,A correct symbol expression or bracket changes during transcription,An algebraic transformation rule was applied incorrectly
+RESP_FIELD_ORDER,Answer submission,Answer fields or order swapped,answer,Correct subanswers are entered into the wrong blanks or order,At least one result is mathematically wrong
+RESP_FORMAT,Answer submission,Equivalent answer in rejected format,answer,The value is equivalent but violates an explicit response format,The value is mathematically different
+ITEM_AMBIGUOUS,Item or system issue,Ambiguous or defective item,answer,Visible conditions are missing contradictory or permit multiple answers,The student merely overlooked a clear condition
+ITEM_SCORING_ERROR,Item or system issue,Answer key or scoring error,answer,The student answer is mathematically correct but the key or parser rejects it,The student answer violates a clear requirement
