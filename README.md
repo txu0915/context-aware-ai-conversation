@@ -24,8 +24,21 @@ The two `03_` notebooks form one evaluation and safety section: evaluate the con
 - An English presentation version of the production-inspired T1–T9 teacher and S1–S6 student rubrics.
 - Guardrail examples for `continue`, `verify_learning`, `support`, `redirect`, `stop`, and `escalate`.
 - Optional OpenAI and Google Gemini live demos that remain isolated from the offline tutorial path.
+- A reproducible turn-by-turn generator with separate Student Agent and Tutor Agent prompts in `scripts/generate_multi_agent_dialogues.py`.
 
-Prepared scores are tutorial fixtures, not production evaluation results. They make the presentation deterministic and easy to follow; the optional live cells let participants run the same workflow themselves.
+The checked-in conversations are agent-authored, tutorial-curated simulations. Their scores are rubric-calibrated tutorial evaluations. They demonstrate the intended mechanisms and data contracts; they are not production results or causal effect estimates. The optional live cells let participants run the workflow themselves.
+
+Each generated session records its method, provider, model, Student Agent, Tutor Agent, and timestamp. To regenerate all six sessions with separate agent calls, configure a valid API key and run:
+
+```bash
+python scripts/generate_multi_agent_dialogues.py --provider Google --model gemini-3.8-flash
+```
+
+Evaluate the generated sessions with a separate Judge Agent before promoting them:
+
+```bash
+python scripts/evaluate_dialogue_sessions.py --provider Google --model gemini-3.8-flash
+```
 
 ## Repository structure
 

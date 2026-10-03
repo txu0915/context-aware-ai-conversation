@@ -9,27 +9,25 @@ from typing import Any
 import pandas as pd
 
 
-VALID_MODALITIES = {"answer", "draft_preferred", "draft_required", "cross"}
+VALID_EVIDENCE_POLICIES = {"both", "both_required", "draft_primary", "answer_primary"}
 
 
 def load_tutorial_taxonomy(path: str | Path) -> pd.DataFrame:
     taxonomy = pd.read_csv(path).fillna("")
-    required = {"id", "major_category", "minor_category", "modality", "definition", "exclude"}
+    required = {"id", "major_category", "minor_category", "evidence_policy", "definition", "exclude"}
     missing = required - set(taxonomy.columns)
     if missing:
         raise ValueError(f"taxonomy missing columns: {sorted(missing)}")
     if taxonomy["id"].duplicated().any():
         raise ValueError("taxonomy IDs must be unique")
-    if not set(taxonomy["modality"]).issubset(VALID_MODALITIES):
-        raise ValueError("unknown evidence modality")
+    if not set(taxonomy["evidence_policy"]).issubset(VALID_EVIDENCE_POLICIES):
+        raise ValueError("unknown evidence policy")
     return taxonomy
 
 
 def compact_taxonomy(taxonomy: pd.DataFrame) -> str:
-    labels = {"answer": "answer", "draft_preferred": "draft preferred",
-              "draft_required": "draft required", "cross": "cross-modal comparison"}
     return "\n".join(
-        f"{r.id}|{labels[r.modality]}|{r.minor_category}|{r.definition}|exclude:{r.exclude}"
+        f"{r.id}|{r.evidence_policy}|{r.minor_category}|{r.definition}|exclude:{r.exclude}"
         for r in taxonomy.itertuples()
     )
 
@@ -55,8 +53,8 @@ def validate_v52_output(result: dict[str, Any], taxonomy: pd.DataFrame) -> list[
         seen.add(error_id)
         if hit.get("confidence") not in {"strong", "fair"}:
             errors.append(f"invalid confidence: {error_id}")
-        if quality == "poor" and known[error_id]["modality"] in {"draft_required", "cross"}:
-            errors.append(f"poor draft cannot support {error_id}")
+        if quality == "poor" and known[error_id]["evidence_policy"] == "both_required":
+            errors.append(f"poor draft cannot support both-required class {error_id}")
     if hits and not str(result.get("rationale", "")).strip():
         errors.append("rationale is required when hits are present")
     return errors

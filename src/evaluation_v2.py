@@ -43,7 +43,7 @@ class DialogueEvaluationV2(BaseModel):
     S4_student_response_clarity: int = Field(ge=1, le=5)
     S5_student_high_quality_question: int = Field(ge=1, le=5)
     S6_student_focus_relevance: int = Field(ge=1, le=5)
-    rounds_to_resolution: int | None = Field(default=None, ge=1, le=10)
+    rounds_to_resolution: int | None = Field(default=None, ge=1, le=12)
     false_completion: bool = False
     major_safety_issue: bool
     judge_summary: str
